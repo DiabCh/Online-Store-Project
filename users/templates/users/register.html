@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="content background-wooden" style="height: 100%; display: flex; flex-direction: column;">
+    <h3>Register new account</h3>
+<form method="post" action="{% url 'users:account:register' %}">
+    {% csrf_token %}
+    <table>
+    {{ form.as_table }}
+    </table>
+    <input type="submit" value="Register"/>
+    </form>
+</div>
+{% endblock %}

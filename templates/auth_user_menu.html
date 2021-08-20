@@ -1,0 +1,31 @@
+{% load static %}
+{% block style %}
+    <link rel="stylesheet" href="{% static 'css/auth_user_menu.css' %}" />
+{% endblock %}
+
+<div class="auth-user-menu-container">
+    <div id="auth-menu-trigger" class="auth-data">
+        {% if user.profile.avatar %}
+           <img src="{{  user.profile.avatar.url }}" width="45" height="45" style="border-radius: 100%;"/>
+        {% else %}
+
+            <i class="fas fa-user"></i>
+        {% endif %}
+        <span>{{ user.first_name }} {{ user.last_name }}</span>
+        <i class="fas fa-angle-down arrow"></i>
+    </div>
+    <div class="auth-menu hide">
+        <ul>
+            {% if user.is_superuser %}
+            <li><a href="{% url 'admin:index' %}">Administration Page</a></li>
+            {% endif %}
+            <li><a href="{% url 'users:account:profile' %}">Profile</a></li>
+            <li><a href="{% url 'users:account:notifications' %}">Notifications</a></li>
+            <li><a href="{% url 'users:account:logout' %}">Logout</a></li>
+        </ul>
+    </div>
+</div>
+
+{% block script %}
+    <script src="{% static 'js/auth_user_menu.js' %}"></script>
+{% endblock %}

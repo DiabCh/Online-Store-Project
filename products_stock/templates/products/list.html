@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load cart %}
+{% block style %}
+    <link href="{% static 'css/store.css' %}" rel="stylesheet" type="text/css">
+{% endblock %}
+
+{% block content %}
+<div class="content background-wooden">
+        {% include 'products/filters.html' %}
+    <hr class="style-four" style="margin:0">
+        {% include 'pagination.html' %}
+    <ul class="product-list">
+
+        {% for product in page_obj %}
+            <li>
+                <img src="{{ product.image_cover.url }}" height="180" width="40%" />
+                <div class="name-and-price"  >
+                    <a href="{% url 'products:product_page:details' product.id %} " target="_blank">
+
+                    <div>{{ product.name }}</div>
+                    <div>{{ product.price }} RON</div>
+                    </a>
+                </div>
+                <div class="store-details">
+                    Publisher
+                    <a href="">{{ product.publisher }}</a>
+                </div>
+                <form class="add-to-cart" method="post" action="{% url 'products:add_to_cart' product.id %}">
+                    {% csrf_token %}
+                    <input name="quantity" type="number" min="0" value="{{ request.session | product_value:product.id }}" />
+
+                    <button class="btn"><i class="fas fa-cart-plus"></i></button>
+
+
+                    <input type="hidden" name="page" value="{{ page_obj.number }}"/>
+                </form>
+            </li>
+        {% endfor %}
+    </ul>
+     {% include 'pagination.html' %}
+</div>
+{% endblock %}
+
+{% block script %}
+  <script src="{% static 'js/sotre_list.js' %}"></script>
+
+{% endblock %}

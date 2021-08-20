@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+<div class="content background-wooden" style="height: 100%; display: flex; flex-direction: column;">
+    <h2>Order number: {{ order_id }} </h2>
+    <div>
+        <ul>
+            {% for product,quantities in list %}
+                <li>
+                   {{ product }} {{ quantities }} total price : {% widthratio quantities 1 product.price %}
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends "admin/base_site.html" %}
+
+{% block content %}
+<div>
+    Retrieve sales data for products in submitted time-frame.
+</div>
+<hr>
+                <form method="post" action="{% url 'admin:financial-data' %}">
+                    {% csrf_token %}
+                    {{ form }}
+                <input type="submit" value="Financial Data" />
+
+</form>
+{% endblock %}

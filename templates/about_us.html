@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'css/homepage.css' %}"/>
+{% endblock %}
+
+{% block content %}
+<div class="content background-wooden" style="height: 100%; display: flex; flex-direction: column;">
+    <h1>
+        About us
+    </h1>
+    <div class="about-us">
+
+        <p>Welcome to the Boardgame Emporium, where all dreams come true! A place made for those who want to find the best and latest boardgames from popular to niche.</p>
+        We aim to:
+        <ol>
+            <li> Bring you the most interesting board games available</li>
+            <li> Serve you with quality, respect and timely deliveries on all new products</li>
+            <li> To help increase the boardgame community and offer both a safe space for new hobbyists  and the oldguard</li>
+        </ol>
+        <p>If a game is not available in our stock, please contact us and we will try to add it to our store just for you!</p>
+    </div>
+</div>
+{% endblock %}

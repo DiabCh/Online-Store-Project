@@ -1,0 +1,80 @@
+{% load static %}
+
+<html>
+    <head>
+        <title>Boardgame Emporium</title>
+        <link rel="stylesheet" type='text/css' href="{% static 'css/main.css' %}"/>
+        <link href="{% static 'fontawesome_free/css/all.min.css' %}" rel="stylesheet" type="text/css" >
+        <link rel="shortcut icon" type="image/png" href="{% static 'images/favicon.ico' %}"/>
+
+        {% block style %}
+
+
+
+        {% endblock %}
+        <script src="{% static 'fontawesome_free/js/all.min.js' %}"></script>
+    </head>
+    <body>
+
+        <div class="page-wrapper">
+            <div class="header-wrapper">
+                <div class="header-content">
+                    <div class="brand">
+                        <a href="/">
+                            <img src="{% static 'images/Capture.PNG' %}" height="60" />
+                        </a>
+                    </div>
+                    {% if user.is_authenticated %}
+
+                      {% include 'mini_cart.html' %}
+
+                    {% endif %}
+                    <ul class="menu 1:14 timestamp">
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/">Promotions wip</a></li>
+                        <li><a href="{% url 'products:publisher:publisher_list' %}">Publishers</a></li>
+                        <li><a href="{% url 'products:store_list' %}">Latest Products</a></li>
+                        <li><a href="{% url 'payment_delivery' %}">Payment and delivery</a></li>
+                        <li><a href="{% url 'contact' %}">Contact</a></li>
+                        <li><a href="{% url 'about_us' %}">About us</a></li>
+
+                    </ul>
+
+                    <div class="user-data">
+                        {% if user.is_authenticated %}
+                            {% include 'auth_user_menu.html' %}
+                        {% else %}
+                            <a href="{% url 'users:account:login' %}">Login</a>
+                            <a id="register-link" href="{% url 'users:account:register' %}">Register</a>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="header-image" style="background-image: url('{% static 'images/bgBanners.PNG' %}')">
+                    <div  class="overlay">
+                    </div>
+
+                </div>
+
+
+
+            </div>
+
+            <div class="content background-wooden">
+                {% block content %}
+                {% endblock %}
+            </div>
+        </div>
+        {% block script %}
+
+
+        {% endblock %}
+
+    </body>
+<!--<footer>-->
+
+<!--        <div style="border: 1px solid black; position:relative; min-height: 200px">-->
+<!--            <center><img src="{% static 'images/Capture.PNG' %}" width="150"/></center>-->
+<!--            <p><span style = "color:rgba(255, 0, 0, 1)">All rights to every board game ever belong to me, your soul now belongs to me. Thank you come again.</span></p>-->
+<!--        </div>-->
+<!--</footer>-->
+<!--</html>-->

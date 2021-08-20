@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<div class="content background-wooden" style="height: 100%; display: flex; flex-direction: column;">
+    <img itemprop="image" src="{{ publisher.image.url }}" width=20% title="{{ publisher.name }}"/>
+    {{ publisher.name }}
+    {{ publisher.details }}
+    {% for product in publisher_products %}
+        <ul>
+            <a href="{% url 'products:product_page:details' product.id %} " target="_blank">
+                <div>{{ product.name }}</div>
+            </a>
+
+        </ul>
+
+    {% endfor %}
+</div>
+{% endblock %}

@@ -1,0 +1,85 @@
+[
+ {
+    "publisher": "2",
+    "name": "Elder Sign",
+    "description": "Explore the Eldritch horrors and stop an ancient evil from awakening",
+    "image_cover": "bg_cover/elder_sign.jpg",
+    "price": 175,
+    "genre": "AC",
+    "player_count": "1-8",
+    "new_stock": 10,
+    "used_stock": 2,
+    "difficulty": 2,
+    "sales": 142,
+    "bgg_link": "https://boardgamegeek.com/boardgame/326624/warhammer-underworlds-direchasm",
+    "image_game": "bg_game/whu.png",
+    "category_name": "board game"
+   },
+ {
+    "publisher": "7",
+    "name": "Warhammer Underworlds: Beastgrave",
+    "description": "Expansion nr 3 Warhammer underworlds",
+    "image_cover": "bg_cover/beastgrave.jpg",
+    "price": 290,
+    "genre": "AC",
+    "player_count": "2-4",
+    "new_stock": 10,
+    "used_stock": 2,
+    "difficulty": 2,
+    "sales": 633,
+    "bgg_link": "https://boardgamegeek.com/boardgame/326624/warhammer-underworlds-beastgrave",
+    "image_game": "bg_game/whu.png",
+    "category_name": "board game"
+   },
+
+ {
+    "publisher": "7",
+    "name": "Warhammer Underworlds: nightvault",
+    "description": "Expansion nr 2 Warhammer underworlds",
+    "image_cover": "bg_cover/nightvault.jpg",
+    "price": 275,
+    "genre": "AC",
+    "player_count": "2-4",
+    "new_stock": 10,
+    "used_stock": 2,
+    "difficulty": 2,
+    "sales": 270,
+    "bgg_link": "https://boardgamegeek.com/boardgame/326624/warhammer-underworlds-nightvault",
+    "image_game": "bg_game/whu.png",
+    "category_name": "board game"
+   },
+
+ {
+    "publisher": "7",
+    "name": "Warhammer Underworlds: shadespire",
+    "description": "Expansion nr 1 Warhammer underworlds",
+    "image_cover": "bg_cover/shadespire.jpg",
+    "price": 250,
+    "genre": "AC",
+    "player_count": "2-4",
+    "new_stock": 10,
+    "used_stock": 2,
+    "difficulty": 2,
+    "sales": 543,
+    "bgg_link": "https://boardgamegeek.com/boardgame/326624/warhammer-underworlds-shadespire",
+    "image_game": "bg_game/whu.png",
+    "category_name": "board game"
+   },
+ {
+    "publisher": "7",
+    "name": "Warhammer Underworlds: Godsworn Hunt",
+    "description": "bg_cover/Godsworn Hunt booster pack",
+    "image_cover": "whu_godsworn_hunt.jpg",
+    "price": 120,
+    "genre": "AC",
+    "player_count": "2-4",
+    "new_stock": 10,
+    "used_stock": 2,
+    "difficulty": 2,
+    "sales": 241,
+    "bgg_link": "https://boardgamegeek.com/boardgame/271910/warhammer-underworlds-nightvault-godsworn-hunt",
+    "image_game": "bg_game/whu.png",
+    "category_name": "expansion"
+   }
+
+]

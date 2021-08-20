@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+<div class="content background-wooden" style="height: 100%; display: flex; flex-direction: column;">
+    <h1>Profile</h1>
+    <a href="{% url 'users:account:change_password' %}">change password</a>
+    <hr>
+    <a href="{% url 'users:account:order_history' %}">view orders</a>
+    <hr>
+    <a href="{% url 'users:account:address_view' %}">view address</a>
+    <hr>
+    <a href="{% url 'payments:list_cards' %}">view payment options</a>
+
+</div>
+{% endblock %}

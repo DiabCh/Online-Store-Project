@@ -1,0 +1,48 @@
+{% load static %}
+{% load cart %}
+{% load products %}
+{% block style %}
+    <link href="{% static 'css/pagination.css' %}" rel="stylesheet" type="text/css">
+{% endblock %}
+
+
+<div class="pagination">
+
+
+        {% if page_obj.has_previous %}
+                <a class="wrapper circle" href="{{ request | pagination_url }}">
+        <i class="fas fa-angle-double-left"></i>
+    </a>
+            <a class="wrapper circle" href="{{ request | pagination_url:page_obj.previous_page_number }}" >
+                <i class="fas fa-angle-left"></i>
+            </a>
+        {% endif %}
+
+        {% if page_obj.has_other_pages %}
+            {% with aux_page_obj=page_obj|visible_pages %}
+
+                {% for page in aux_page_obj %}
+                    {% if page is None %}
+                         <span>. . . . . . </span>
+                    {% else %}
+                        <a class="wrapper {% if page_obj.number == page.number %}active{% endif %}" href="{{ request | pagination_url:page.number }}">
+                        {{ page.number }}
+                          </a>
+                    {% endif %}
+                {% endfor %}
+            {% endwith %}
+        {% endif %}
+        {% if page_obj.has_next %}
+            <a class="wrapper circle" href="{{ request | pagination_url:page_obj.next_page_number}}">
+                <i class="fas fa-angle-right" ></i>
+
+            <a class="wrapper circle" href="{{ request | pagination_url:page_obj.paginator.num_pages }}">
+            <i class="fas fa-angle-double-right"></i>
+
+
+        {% endif %}
+
+        </a>
+        </a>
+
+</div>

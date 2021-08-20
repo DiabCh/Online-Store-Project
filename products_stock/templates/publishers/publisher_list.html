@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+    <title>Publishers</title>
+{% endblock %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'css/homepage.css' %}"/>
+{% endblock %}
+
+{% block content %}
+    <ul class="product-list">
+
+        {% for publisher in publishers %}
+            <li>
+                <img src="{{ publisher.image.url }}" height="180" width="10%" />
+                <div class="name-and-price"  >
+                    <a href="{% url 'products:publisher:publisher_details' publisher.id %} " target="_blank">
+
+                        <div>{{ publisher.name }}</div>
+                    </a>
+
+                </div>
+
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

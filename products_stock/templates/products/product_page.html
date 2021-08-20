@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% load static %}
+{% load cart %}
+
+{% block style %}
+{% endblock %}
+
+{% block content %}
+<div class="content background-wooden" style="height: 100%; display: flex; flex-direction: column;">
+
+<h1><span itemprop="name">{{ product.name }}</span></h1>
+    <span itemprop="product.name">{{ product.description }}</span>
+<div>
+        <a>
+            <img itemprop="image" src="{{ product.image_cover.url }}" alt="Magna Roma (Kickstarter All In Edition)" title="{{ product.name }}" width="199" height="200">
+
+            {{ product.price }} Ron
+        </a>
+
+</div>
+                    <form class="add-to-cart" method="post" action="{% url 'products:add_to_cart' product.id %}">
+                    {% csrf_token %}
+                    <input name="quantity" type="number" min="0" value="{{ request.session | product_value:product.id }}" />
+
+                    <button class="btn"><i class="fas fa-cart-plus"></i></button>
+
+
+                    <input type="hidden" name="page" value="{{ page_obj.number }}"/>
+                </form>
+Bgg link
+<a  href="{{ product.bgg_link }}" >
+    <img src="{% static 'images/geek.jpg' %}" />
+    </a>
+</div>
+{% endblock %}

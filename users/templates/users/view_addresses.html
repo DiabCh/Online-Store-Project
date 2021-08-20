@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="content background-wooden" style="height: 100%; display: flex; flex-direction: column;">
+VIEW ADDRESSES
+    {% for address in user_addresses %}
+
+    <ul>
+        Country: {{ address.country }}
+        City: {{ address.city }}
+        Sector: {{ address.sector }}
+        Street: {{ address.street }}
+        Building: {{ address.building }}
+        Floor: {{ address.floor }}
+        Apartment: {{ address.appartment }}
+        <a href="{% url 'users:account:remove_address' address.id %}">Remove address</a>
+    </ul>
+    <hr>
+    {% endfor %}
+    <a href="{% url 'users:account:add_address' %}">Add an address</a>
+</div>
+{% endblock %}
+
+

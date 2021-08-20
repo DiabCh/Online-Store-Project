@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load cart %}
+{% block style %}
+{% endblock %}
+
+{% block content %}
+<div class="content background-wooden" style="height: 100%; display: flex; flex-direction: column;">
+
+
+        <form style="margin-top: 30px;margin-left: 30px;" action="{% url 'users:account:import_product_data' %}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div>
+                <input type="file"
+                       title="Upload excel file"
+                       name="excel_file"
+                       style="border: 1px solid black; padding: 5px;"
+                       required="required">
+                import excel file template
+                </div>
+            <p>
+            <div>
+                <input type="file"
+                       title="Upload ZIP"
+                       name="ZIP-images"
+                       style="border: 1px solid black; padding: 5px;"
+                       required="required">
+                    Zip file with images
+            </div>
+                <p></p>
+            <input type="submit"
+                   value="Upload"
+                   style="border: 1px solid green; padding:5px; border-radius: 2px; cursor: pointer;">
+
+        </form>
+
+
+        <p>
+            <a href="/images/geek.jpg" download="template">
+                    <!-- Auto width -->
+                <button class="btn"><i class="fa fa-download"></i> Download</button>
+            </a>
+
+
+
+        <hr>
+
+        {% for row in excel_data %}
+            {% for cell in row %}
+                {{ cell }}&nbsp;&nbsp;
+            {% endfor %}
+            <br>
+        {% endfor %}
+
+</div>
+
+{% endblock %}

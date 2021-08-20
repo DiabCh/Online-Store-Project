@@ -1,0 +1,28 @@
+
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="content background-wooden" style="height: 100%; display: flex; flex-direction: column;">
+    {% if cards %}
+        <ul>
+            {% for card in cards %}
+                <li>
+                    <div><strong>Brand: </strong> {{ card.brand }}</div>
+                    <div><strong>Number: </strong> **** **** **** {{ card.last4 }}</div>
+                    <div><strong>Expires on: </strong> {{ card.exp_month }}/{{ card.exp_year }}</div>
+                    <form method="post" action="{% url 'payments:remove_card' card.id %}">
+                        {% csrf_token %}
+                        <input type="submit" value="Remove" />
+                    </form>
+                </li>
+            {% endfor %}
+            <p>Or create another payment method <a href="{% url 'payments:add_card' %}">here</a></p>
+        </ul>
+    {% else %}
+        <p>No cards available. You can add a card <a href="{% url 'payments:add_card' %}">here</a>.</p>
+    {% endif %}
+
+</div>
+{% endblock %}
+
+

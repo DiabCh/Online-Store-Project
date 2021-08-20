@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load cart %}
+
+{% block style %}
+
+    <link href="{% static 'css/store.css' %}" rel="stylesheet" type="text/css">
+{% endblock %}
+
+{% block content %}
+<div class="content background-wooden" style="height: 100%; display: flex; flex-direction: column;">
+
+    <h2>Cart Review</h2>
+    <ul class="product-list">
+        {% for product in product_list %}
+            <li>
+                <img src="{{ product.image_cover.url }}" height="180" width="40%" />
+                <div class="name-and-price">
+                    <a href="{% url 'products:product_page:details' product.id %}">
+
+                    <div>{{ product.name }}</div>
+                    <div>{{ product.price }} RON</div>
+                    </a>
+                </div>
+                <div class="store-details">
+                    Publisher
+                    <a href="">{{ product.publisher }}</a>
+                </div>
+                <form class="add-to-cart" method="post" action="{% url 'products:add_to_cart' product.id %}?next={% url 'products:cart:view' %}">
+                    {% csrf_token %}
+                    <input name="quantity" type="number" min="0" value="{{ request.session | product_value:product.id }}" />
+                    <input type="submit" value="Add to cart" />
+                    <input type="hidden" name="page" value="{{ page_obj.number }}"/>
+                </form>
+            </li>
+        {% empty %}
+        <p>
+            You have no products in your cart. Go to <a href="{% url 'products:store_list'%}">the store page</a>
+        </p>
+        {% endfor %}
+    </ul>
+    {% with product_list_length=product_list|length %}
+        {% if product_list_length %}
+            <a href="{% url 'orders:order' %}">Order</a>
+
+        {% endif %}
+    {% endwith %}
+</div>
+{% endblock %}
+

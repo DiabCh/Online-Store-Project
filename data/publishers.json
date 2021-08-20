@@ -1,0 +1,39 @@
+[
+  {
+    "name": "Fantasy Flight Games",
+    "image": "publisher/ffs.jpg",
+    "details": "American publisher and creators of Twilight Imperium and many of the lovecraft inspired games"
+  },
+    {
+    "name": "Stonemaier Games",
+    "image": "publisher/stonemaier.jpg",
+    "details": " We strive to create memorable, beautiful, fun games that engage and delight gamers worldwide."
+  },
+    {
+    "name": "Hans im Glück",
+    "image": "publisher/hig.jpg",
+    "details": "may or may not have been behind boris's rise to power."
+  },
+    {
+    "name": "Alderac Entertainment Group",
+    "image": "publisher/aeg.jpg",
+    "details": "Alderac Entertainment Group, or AEG, is a publisher of role-playing game and collectible card game products."
+  },
+    {
+    "name": "Lookout Games",
+    "image": "publisher/lookout_games.jpg",
+    "details": "Lookout, they're out for your cash"
+  }
+  ,
+   {
+    "name": "Games Workshop",
+    "image": "publisher/gw.jpg",
+    "details": "Oy vey goyim, give me your money for your little plastic toys"
+  },
+    {
+    "name": "Andreea and Hopi game masters",
+    "image": "publisher/hopi.jpg",
+    "details": "Out to make the best games ever"
+  }
+
+]

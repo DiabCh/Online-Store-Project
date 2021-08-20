@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+{% load static %}
+
+<html>
+  <head>
+    {% block style %}
+        <title>Diab's Boardgame Emproium</title>
+        <link rel="stylesheet" href="{% static 'css/homepage.css' %}"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    {% endblock %}
+        </head>
+  {% block content %}
+
+    <body>
+      <div class="slideshow-container">
+          <h2>New Products </h2>
+          {% for product in new_products %}
+
+          <div class="mySlides fade">
+              <a href="{% url 'products:product_page:details' product.id %}">
+              <img src="{{ product.image_cover.url }}" width ="100%" />
+              <div class="text">{{ product.name }}</div>
+              </a>
+          </div>
+          {% endfor %}
+
+
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+      </div>
+      <br>
+
+      <div style="text-align:center">
+        <span class="dot" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+        <span class="dot" onclick="currentSlide(3)"></span>
+        <span class="dot" onclick="currentSlide(4)"></span>
+        <span class="dot" onclick="currentSlide(5)"></span>
+      </div>
+
+<h2 class="red top-5-title">Top 5 board games this week! Implement sales value for each product in order to track this</h2>
+
+
+<!--    <h3>Kickstarter project of the week</h3>-->
+
+
+      <div class="top-5-container">
+          {% for product in best_sellers %}
+            <div class="top-5-item">
+                <img src="{{ product.image_cover.url }}" alt="" class="item-img" />
+                <div class="item-details">
+                    <a href="{% url 'products:product_page:details' product.id %}" class="item-title">
+                        {{ product.name }}
+                    </a>
+                    <p class="item-desc">{{ product.description }}</p>
+                </div>
+            </div>
+<!--          div.class_name + tab-->
+          {% endfor %}
+      </div>
+
+
+  {% endblock %}
+  {% block script %}
+  <script src="{% static 'js/homepage.js' %}"></script>
+    </body>
+</html>
+
+{% endblock %}
+

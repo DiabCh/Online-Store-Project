@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+<div class="content background-wooden" style="height: 100%; display: flex; flex-direction: column;">
+    <h2>MY ORDERS</h2>
+<div>
+
+    {% for order_obj,price_list in list %}
+
+     <ul>
+         Order number <a href="{% url 'users:account:order_details' order_obj.id%}">{{ order_obj.id }}</a>
+
+     </ul>
+
+         ORDER VALUE {{ price_list }}
+    <hr>
+    {% endfor %}
+
+</div>
+</div>
+{% endblock %}
